@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "12328822936",
+    "firebase_url": "https://cliderappproject.firebaseio.com",
+    "project_id": "cliderappproject",
+    "storage_bucket": "cliderappproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12328822936:android:0e4c6edc89e9bb61",
+        "android_client_info": {
+          "package_name": "com.example.nicolai.clider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12328822936-udcabqs1do9ui4fv4fijf3ckihr6n7sb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5gAHU2MySpGtPTPlp3eS3l3kSZivegI4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
