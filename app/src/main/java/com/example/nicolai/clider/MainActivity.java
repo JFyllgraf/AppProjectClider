@@ -12,6 +12,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void jespersMor(){
-        String jespersMor = "træls";
+        String nicolaisMor = "træls";
     }
 }

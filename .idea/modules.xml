@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Clider.iml" filepath="$PROJECT_DIR$/Clider.iml" />
+      <module fileurl="file://C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\Clider.iml" filepath="C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\Clider.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\app\app.iml" filepath="C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/appprojectclider.iml" filepath="$PROJECT_DIR$/.idea/appprojectclider.iml" />
     </modules>
   </component>
 </project>
