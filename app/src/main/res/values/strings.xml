@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Clider</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signUp">Sign up</string>
+    <string name="login">Log in</string>
+    <string name="man">Man</string>
+    <string name="woman">Woman</string>
+    <string name="signUpText">Dont have a user? Sign up here</string>
+    <string name="loginText">Already have a user? Log in here</string>
+    <string name="logOut">Log out</string>
+    <string name="browse">Browse!</string>
+    <string name="age">Age</string>
+
 </resources>
