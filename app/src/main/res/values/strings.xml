@@ -11,5 +11,6 @@
     <string name="logOut">Log out</string>
     <string name="browse">Browse!</string>
     <string name="age">Age</string>
+    <string name="preferences">Which clothes are you interested in?</string>
 
 </resources>
