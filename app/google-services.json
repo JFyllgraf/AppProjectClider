@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "12328822936-bl9lbr8etb2n1lm2rej11d63srgjv60e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nicolai.clider",
+            "certificate_hash": "9477c2f5c2b70d9d054e19c70a0115fa3822a4a0"
+          }
+        },
+        {
           "client_id": "12328822936-udcabqs1do9ui4fv4fijf3ckihr6n7sb.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12328822936-udcabqs1do9ui4fv4fijf3ckihr6n7sb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

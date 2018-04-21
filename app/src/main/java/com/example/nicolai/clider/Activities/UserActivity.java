@@ -1,25 +1,23 @@
-package com.example.nicolai.clider;
+package com.example.nicolai.clider.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.nicolai.clider.Adapters.ClothesAdapter;
+import com.example.nicolai.clider.Activities.BrowsingActivities.BrowseActivity1;
+import com.example.nicolai.clider.R;
 import com.example.nicolai.clider.model.UserPreferences;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -150,6 +148,8 @@ public class UserActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         firebaseDatabase.child(user.getUid()).setValue(userPreferences);
         Toast.makeText(this, "Information saved", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, BrowseActivity1.class));
+        finish();
 
     }
 

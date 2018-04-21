@@ -11,16 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".UserActivity" />
-        <activity android:name=".BrowseActivity"></activity>
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.UserActivity" />
+
+        <service
+            android:name=".Services.BackgroundService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".Activities.TestStorageActivity" />
+        <activity android:name=".Activities.BrowsingActivities.BrowseActivity1" />
+        <activity android:name=".Activities.ListActivity"></activity>
     </application>
 
 </manifest>
