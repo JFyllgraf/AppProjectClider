@@ -8,6 +8,13 @@ import java.util.HashMap;
  */
 
 public class UserPreferences {
+
+    public UserPreferences(int age, String sex, ArrayList<String> tags) {
+        this.age = age;
+        this.sex = sex;
+        this.tags = tags;
+    }
+
     public int getAge() {
         return age;
     }
@@ -24,13 +31,18 @@ public class UserPreferences {
         this.sex = sex;
     }
 
+    public ArrayList<String> getTags() {
+        return tags;
+    }
 
-
-
+    public void setTags(ArrayList<String> tags) {
+        this.tags = tags;
+    }
 
     public int age;
     public String sex;
-    public HashMap<String, Boolean> clothesPreferences;
+    public ArrayList<String>tags;
+   /* public HashMap<String, Boolean> clothesPreferences;
 
     public HashMap<String, Boolean> getClothesPreferences() {
         return clothesPreferences;
@@ -38,16 +50,16 @@ public class UserPreferences {
 
     public void setClothesPreferences(HashMap<String, Boolean> clothesPreferences) {
         this.clothesPreferences = clothesPreferences;
-    }
+    }*/
 
 
 
     public UserPreferences() {
     }
 
-    public UserPreferences(String sex, int age, HashMap<String, Boolean> clothesPreferences) {
+ /*   public UserPreferences(String sex, int age, HashMap<String, Boolean> clothesPreferences) {
         this.age = age;
         this.sex = sex;
         this.clothesPreferences = clothesPreferences;
-    }
+    }*/
 }
