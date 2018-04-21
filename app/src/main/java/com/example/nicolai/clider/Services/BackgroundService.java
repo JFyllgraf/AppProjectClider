@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.example.nicolai.clider.Utils.Utils;
 import com.example.nicolai.clider.model.Clothe;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,5 +51,10 @@ public class BackgroundService extends Service {
 
      public List<Clothe> getAllClothes(){
         return Utils.loadClothes(this.getApplicationContext());
+     }
+
+     public void saveUserInfo(){
+        // FirebaseUser user = firebaseAuth.getCurrentUser();
+        // firebaseDatabase.child(user.getUid()).setValue(userPreferences);
      }
 }
