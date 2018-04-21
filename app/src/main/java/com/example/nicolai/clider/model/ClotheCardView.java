@@ -1,6 +1,8 @@
 package com.example.nicolai.clider.model;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.MultiTransformation;
 import com.example.nicolai.clider.R;
+import com.example.nicolai.clider.Utils.Globals;
 import com.example.nicolai.clider.Utils.Utils;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
@@ -42,7 +45,7 @@ public class ClotheCardView {
     @SwipeView
     private android.view.View cardView;
 
-    private Clothe clothe;
+    private Clothe mClothe;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
     public static ArrayList<Clothe> arrayList;
@@ -52,7 +55,7 @@ public class ClotheCardView {
     }
 
     public ClotheCardView(Clothe clothe, Context mContext, SwipePlaceHolderView mSwipeView) {
-        this.clothe = clothe;
+        this.mClothe = clothe;
         this.mContext = mContext;
         this.mSwipeView = mSwipeView;
         arrayList = new ArrayList<>();
@@ -66,16 +69,16 @@ public class ClotheCardView {
                         mContext, Utils.dpToPx(7), 0,
                         RoundedCornersTransformation.CornerType.TOP));
 
-        Glide.with(mContext).load(clothe.getImageUrl())
+        Glide.with(mContext).load(mClothe.getImageUrl())
                 .bitmapTransform(multi)
                 .into(clotheImage);
-        clotheType.setText(clothe.getName());
-        descriptionDetails.setText(clothe.getLocation());
+        clotheType.setText(mClothe.getName());
+        descriptionDetails.setText(mClothe.getLocation());
     }
 
     @SwipeHead
     private void onSwipeHeadCard() {
-        Glide.with(mContext).load(clothe.getImageUrl())
+        Glide.with(mContext).load(mClothe.getImageUrl())
                 .bitmapTransform(new RoundedCornersTransformation(
                         mContext, Utils.dpToPx(7), 0,
                         RoundedCornersTransformation.CornerType.TOP))
@@ -102,7 +105,8 @@ public class ClotheCardView {
 
     @SwipeIn
     private void onSwipeIn(){
-        arrayList.add(clothe);
+        arrayList.add(mClothe);
+        broadcastClothe(mClothe);
         Log.d("EVENT", "onSwipedIn");
     }
 
@@ -114,6 +118,14 @@ public class ClotheCardView {
     @SwipeOutState
     private void onSwipeOutState(){
         Log.d("EVENT", "onSwipeOutState");
+    }
+
+    private void broadcastClothe(Clothe clothe){
+        Log.d("Sender", "broadcastClothe: ");
+        Intent broadcastIntent = new Intent(Globals.clotheBroadcast);
+        broadcastIntent.putExtra(Globals.cardSwipeMessage, clothe);
+        //broadcastIntent.setAction(BROADCAST_BACKGROUND_SERVICE_RESULT);
+        LocalBroadcastManager.getInstance(mContext).sendBroadcast(broadcastIntent);
     }
 
 }

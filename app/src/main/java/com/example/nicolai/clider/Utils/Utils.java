@@ -24,11 +24,11 @@ import java.util.List;
 public class Utils {
     private static final String TAG = "Utils";
 
-    public static List<Clothe> loadProfiles(Context context){
+    public static List<Clothe> loadClothes(Context context){
         try{
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();
-            JSONArray array = new JSONArray(loadJSONFromAsset(context, "profiles.json"));
+            JSONArray array = new JSONArray(loadJSONFromAsset(context, "clothes.json"));
             List<Clothe> profileList = new ArrayList<>();
             for(int i=0;i<array.length();i++){
                 Clothe clothes = gson.fromJson(array.getString(i), Clothe.class);

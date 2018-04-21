@@ -27,7 +27,7 @@
             android:exported="true" />
 
         <activity android:name=".Activities.TestStorageActivity" />
-        <activity android:name=".Activities.BrowsingActivities.BrowseActivity1" />
+        <activity android:name=".Activities.BrowsingActivities.BrowseActivity" />
         <activity android:name=".Activities.ListActivity"></activity>
     </application>
 

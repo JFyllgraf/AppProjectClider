@@ -3,7 +3,10 @@ package com.example.nicolai.clider.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Clothe {
+import java.io.Serializable;
+import java.util.UUID;
+
+public class Clothe implements Serializable{
     @SerializedName("name")
     @Expose
     private String name;
@@ -19,6 +22,20 @@ public class Clothe {
     @SerializedName("location")
     @Expose
     private String location;
+
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    @SerializedName("id")
+    @Expose
+    private UUID id;
+
 
     public String getName() {
         return name;

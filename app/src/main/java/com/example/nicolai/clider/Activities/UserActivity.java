@@ -16,7 +16,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.nicolai.clider.Activities.BrowsingActivities.BrowseActivity1;
+import com.example.nicolai.clider.Activities.BrowsingActivities.BrowseActivity;
 import com.example.nicolai.clider.R;
 import com.example.nicolai.clider.model.UserPreferences;
 import com.google.firebase.auth.FirebaseAuth;
@@ -148,7 +148,7 @@ public class UserActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         firebaseDatabase.child(user.getUid()).setValue(userPreferences);
         Toast.makeText(this, "Information saved", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, BrowseActivity1.class));
+        startActivity(new Intent(this, BrowseActivity.class));
         finish();
 
     }
