@@ -46,25 +46,7 @@ public class UserPreferences {
     public String sex;
     public ArrayList<String>tags;
 
-
-   /* public HashMap<String, Boolean> clothesPreferences;
-
-    public HashMap<String, Boolean> getClothesPreferences() {
-        return clothesPreferences;
-    }
-
-    public void setClothesPreferences(HashMap<String, Boolean> clothesPreferences) {
-        this.clothesPreferences = clothesPreferences;
-    }*/
-
-
-
     public UserPreferences() {
     }
 
- /*   public UserPreferences(String sex, int age, HashMap<String, Boolean> clothesPreferences) {
-        this.age = age;
-        this.sex = sex;
-        this.clothesPreferences = clothesPreferences;
-    }*/
 }

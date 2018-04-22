@@ -48,7 +48,6 @@ public class UserActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     RadioButton rbWoman, rbMan;
     UserPreferences userPreferences;
-    UserPreferences userPreferencesFromFirebasee;
     DatabaseReference firebaseDatabase;
     NumberPicker pickerAge;
     ListView clothesList;
@@ -97,15 +96,12 @@ public class UserActivity extends AppCompatActivity {
                 saveUserInfo();
             }
         });
-
-
         pickerAge.setMinValue(12);
-        pickerAge.setMaxValue(45);
+        pickerAge.setMaxValue(90);
         setUpClothesList();
         progressDialog.setMessage("Fetching preferences.. ");
         progressDialog.show();
 
-        //Hvordan skal det lige hentes ned igen fra firebase? Altså den her kører på array agtig format, og pt bruger jeg et hashmap
         SparseBooleanArray checkedItems = clothesList.getCheckedItemPositions();
         for (int j = 0; j < checkedItems.size() ; j++) {
             if (checkedItems.get(j)){
@@ -116,36 +112,15 @@ public class UserActivity extends AppCompatActivity {
         clothesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //mangler en bedre løsnign til dette
                 if (tagList.get(i).isChecked()){
                     tagList.get(i).setChecked(false);
                 }
                 else {
                     tagList.get(i).setChecked(true);
                 }
-
-               /* if (clothesPreferences.get(clothesList.getItemAtPosition(i).toString())!=null &&
-                        clothesPreferences.get(clothesList.getItemAtPosition(i).toString())== true){
-                    Toast.makeText(UserActivity.this, "Removed", Toast.LENGTH_SHORT).show();
-                    //clothesPreferences.put(clothesList.getItemAtPosition(i).toString(), false);
-                    //clothesPreferences.put(tagList.get(i).getTagName(), false);
-
-
-
-                } else {
-                    Toast.makeText(UserActivity.this, "Added", Toast.LENGTH_SHORT).show();
-                    //clothesPreferences.put(clothesList.getItemAtPosition(i).toString(), true);
-                    //lothesPreferences.put(tagList.get(i).getTagName(), true);
-                }*/
-
-
             }
         });
-
-
     }
-
-
     private void saveUserInfo(){
         if (rbMan.isChecked()){
             sex = Globals.male;
@@ -165,7 +140,6 @@ public class UserActivity extends AppCompatActivity {
         Toast.makeText(this, "Information saved", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, BrowseActivity.class));
         finish();
-
     }
 
     private void setUpClothesList(){
@@ -177,8 +151,6 @@ public class UserActivity extends AppCompatActivity {
         clothesList = (ListView) findViewById(R.id.clothes_list);
         clothesList.setAdapter((ListAdapter) adapter);
         clothesList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
-        //clothesList.setAdapter(new ClothesAdapter(this, clothes));
     }
 
     private void initializeComponents() {
@@ -256,8 +228,6 @@ public class UserActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d("broadcast", "Broadcast recived, userpreferences updated");
-            //String message = intent.getStringExtra(Globals.cardSwipeMessage);
-
             UserPreferences userPreferences = backgroundService.getUserPreferences();
             if (userPreferences!=null){
                 pickerAge.setValue(userPreferences.getAge());
@@ -268,10 +238,8 @@ public class UserActivity extends AppCompatActivity {
                 if (userPreferences.getSex().equalsIgnoreCase(Globals.female)){
                     Log.d("radiobutton", "onReceive: trying to set radiobutton female");
                     radioGroup.check(R.id.radioButtonWoman);
-                    //rbWoman.setChecked(true);
                 }
                 if (userPreferences.getSex().equalsIgnoreCase(Globals.male)){
-                    //rbMan.setChecked(true);
                     Log.d("radiobutton", "onReceive: trying to set radiobutton male");
                     radioGroup.check(R.id.radioButtonMan);
                 }

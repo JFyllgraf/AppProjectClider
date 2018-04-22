@@ -26,7 +26,6 @@ public class BackgroundService extends Service {
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
     UserPreferences mUserPreferences;
-    ArrayList<String> mLikeClotheIds = new ArrayList<>();
     List<String> clothesIds;
 
     public BackgroundService() {
@@ -82,13 +81,10 @@ public class BackgroundService extends Service {
                 clothesIds = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Log.d("clothesIDS", "onDataChange: from" + snapshot.getValue().toString());
-
-                        clothesIds.add(snapshot.getValue().toString());
-                        Log.d("clothesIDS", "onDataChange: from");
-
+                    clothesIds.add(snapshot.getValue().toString());
+                    Log.d("clothesIDS", "onDataChange: from");
                 }
                 broadcastSwipedClothe();
-
             }
 
             @Override
@@ -151,9 +147,6 @@ public class BackgroundService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
     }
 
-    public ArrayList<String> getmLikeClotheIds() {
-        return mLikeClotheIds;
-    }
 
     public ArrayList<Clothe>getLikedCloth(){
         List<Clothe> allClothes = getAllClothes();
