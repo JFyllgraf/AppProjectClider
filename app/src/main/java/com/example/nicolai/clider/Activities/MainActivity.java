@@ -50,15 +50,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void registerUser(){
+        if (email_edit.getText()==null || TextUtils.isEmpty(email_edit.getText().toString())){
+            email_edit.setError("Please fill");
+            return;
+        }
+        if (password_edit.getText()==null || TextUtils.isEmpty(password_edit.getText().toString())){
+            password_edit.setError("Please fill");
+            return;
+        }
         String email = email_edit.getText().toString().trim();
         String password = password_edit.getText().toString().trim();
 
-        if (TextUtils.isEmpty(email)){
-            email_edit.setError("Please fill");
-        }
-        if (TextUtils.isEmpty(password)){
-            password_edit.setError("Please fill");
-        }
 
         progressDialog.setMessage("Registering.. ");
         progressDialog.show();

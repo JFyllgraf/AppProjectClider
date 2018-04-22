@@ -81,7 +81,7 @@ public class BrowseActivity extends AppCompatActivity {
                         .setSwipeInMsgLayoutId(R.layout.swipe_in_msg)
                         .setSwipeOutMsgLayoutId(R.layout.swipe_out_msg));
 
-        List<Clothe> clothes = backgroundService.getAllClothes();
+        List<Clothe> clothes = backgroundService.getClotheByPreferences();
         for(Clothe clothe : clothes){
             mSwipeView.addView(new ClotheCardView(clothe, mContext, mSwipeView));
         }

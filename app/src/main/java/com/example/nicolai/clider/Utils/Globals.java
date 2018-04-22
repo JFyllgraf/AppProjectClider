@@ -5,6 +5,8 @@ public class Globals {
     public static String clotheBroadcast = "CLOTHE_BROADCAST";
     public static String userPreferencesBroadCast = "USERPREFS_BROADCAST";
     public static String userPreferencesUpdated = "USERPREFS_UPDATED";
+    public static String swipedClotheBroadcast = "SWIPED_CLOTHE_BROADCAST";
+    public static String swipedClotheUpdated = "SWIPED_CLOTHE_UPDATED";
 
     public static String shoeTag = "SHOE_TAG";
     public static String jacketTag = "JACKET_TAG";

@@ -2,6 +2,7 @@ package com.example.nicolai.clider.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Nicolai on 09/04/2018.
@@ -14,6 +15,8 @@ public class UserPreferences {
         this.sex = sex;
         this.tags = tags;
     }
+
+
 
     public int getAge() {
         return age;
@@ -42,6 +45,8 @@ public class UserPreferences {
     public int age;
     public String sex;
     public ArrayList<String>tags;
+
+
    /* public HashMap<String, Boolean> clothesPreferences;
 
     public HashMap<String, Boolean> getClothesPreferences() {

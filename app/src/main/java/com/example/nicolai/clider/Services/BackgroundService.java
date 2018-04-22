@@ -10,6 +10,7 @@ import android.util.Log;
 import com.example.nicolai.clider.Utils.Globals;
 import com.example.nicolai.clider.Utils.Utils;
 import com.example.nicolai.clider.model.Clothe;
+import com.example.nicolai.clider.model.SwipedClothes;
 import com.example.nicolai.clider.model.UserPreferences;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,11 +22,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class BackgroundService extends Service {
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
     UserPreferences mUserPreferences;
+    ArrayList<String> mLikeClotheIds = new ArrayList<>();
+    List<String> clothesIds;
 
     public BackgroundService() {
     }
@@ -52,6 +56,7 @@ public class BackgroundService extends Service {
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference  = FirebaseDatabase.getInstance().getReference();
         retriveUserPreferences();
+        retriveLikedClothesIds();
 
     }
 
@@ -61,7 +66,7 @@ public class BackgroundService extends Service {
     }
 
     public void retriveUserPreferences(){
-        databaseReference.child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("userPreferences").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mUserPreferences = dataSnapshot.getValue(UserPreferences.class);
@@ -76,22 +81,76 @@ public class BackgroundService extends Service {
             }
         });
     }
+    public void retriveLikedClothesIds(){
+        databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("clotheIds").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.getValue()!= null && clothesIds.contains(dataSnapshot.getValue().toString())){
+//                    clothesIds.add(dataSnapshot.getValue().toString());
+//                }
+//                if (dataSnapshot.getValue()!= null){
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                        mLikeClotheIds.add(snapshot.getValue().toString());
+//                        Log.d("mLike", "onDataChange: liked items called " + mLikeClotheIds.size());
+//                    }
+//                }
+                clothesIds = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    Log.d("clothesIDS", "onDataChange: from" + snapshot.getValue().toString());
+
+                        clothesIds.add(snapshot.getValue().toString());
+                        Log.d("clothesIDS", "onDataChange: from");
+
+                }
+                //Log.d("user info", "onDataChange: " + mUserPreferences.getAge());
+                broadcastSwipedClothe();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     public void addClothe(Clothe clothe){
+
         backgroundServiceClotheList.add(clothe);
+        /*if (!clothesIds.contains(clothe.getId().toString())){
+            clothesIds.add(clothe.getId().toString());
+        }*/
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        //databaseReference.child(user.getUid()).setValue(mUserPreferences);
+        databaseReference.child(user.getUid()).child("clotheIds").push().setValue(clothe.getId().toString());
+        //databaseReference.child(user.getUid()).child("clotheIds").updateChildren(clothesIds);
         Log.d("From service", "addClothe: added");
         Log.d("List size", "size: " + backgroundServiceClotheList.size());
         Log.d("clothe ID", "addClothe: " + clothe.getId());
+        Log.d("Liked Items size", "addClothe: " + clothesIds.size());
      }
 
      public List<Clothe> getAllClothes(){
         return Utils.loadClothes(this.getApplicationContext());
      }
 
+     public List<Clothe> getClotheByPreferences(){
+        List<Clothe> allClothes = getAllClothes();
+        List<Clothe> filteredClothes = new ArrayList<>();
+         for (Clothe clothe: allClothes) {
+             if (mUserPreferences.getTags().contains(clothe.getTag())){
+                 filteredClothes.add(clothe);
+             }
+         }
+         return filteredClothes;
+     }
+
      public void saveUserInfo(UserPreferences userPreferences){
          Log.d("User stored", "saveUserInfo: ");
         FirebaseUser user = firebaseAuth.getCurrentUser();
          Log.d("User", "saveUserInfo: " + user.getEmail());
-        databaseReference.child(user.getUid()).setValue(userPreferences);
+        //databaseReference.child(user.getUid()).setValue(userPreferences);
+        databaseReference.child(user.getUid()).child("userPreferences").setValue(userPreferences);
      }
 
     public UserPreferences getUserPreferences(){
@@ -106,5 +165,26 @@ public class BackgroundService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
     }
 
+    private void broadcastSwipedClothe(){
+        Log.d("Sender", "broadcast swipedClothe: ");
+        Intent broadcastIntent = new Intent(Globals.swipedClotheBroadcast);
+        broadcastIntent.putExtra(Globals.swipedClotheUpdated, Globals.swipedClotheUpdated);
 
+        LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
+    }
+
+    public ArrayList<String> getmLikeClotheIds() {
+        return mLikeClotheIds;
+    }
+
+    public ArrayList<Clothe>getLikedCloth(){
+        List<Clothe> allClothes = getAllClothes();
+        ArrayList<Clothe> likedClothes = new ArrayList<>();
+        for (Clothe clothe: allClothes) {
+            if (clothesIds.contains(clothe.getId().toString())){
+                likedClothes.add(clothe);
+            }
+        }
+        return likedClothes;
+    }
 }

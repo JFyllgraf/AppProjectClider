@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             email_login.setError("Please fill");
         }
         if (TextUtils.isEmpty(password)){
-            email_login.setError("Please fill");
+            password_login.setError("Please fill");
         }
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
         progressDialog.setMessage("Login in.. ");

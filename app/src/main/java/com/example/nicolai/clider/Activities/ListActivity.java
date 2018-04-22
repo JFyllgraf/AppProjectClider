@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
     ListView clothesListView;
-    ArrayList<Clothe> arrayList;
+    ArrayList<Clothe> arrayList = new ArrayList<>();
     ClotheAdapter clotheAdapter;
     private BackgroundService backgroundService;
     private ServiceConnection backgroundServiceConnection;
@@ -51,7 +51,13 @@ public class ListActivity extends AppCompatActivity {
             public void onServiceConnected(ComponentName name, IBinder service) {
                 backgroundService = ((BackgroundService.BackgroundServiceBinder)service).getService();
                 Log.d("From service", "onServiceConnected: Connected");
-                arrayList = new ArrayList<Clothe>(backgroundService.getBackgroundServiceClotheList());
+                /*for (Clothe clothe: backgroundService.getAllClothes()) {
+                    if (backgroundService.getmLikeClotheIds().contains(clothe.getId().toString())){
+                        arrayList.add(clothe);
+                    }
+                }*/
+                //arrayList = new ArrayList<Clothe>(backgroundService.getBackgroundServiceClotheList());
+                arrayList = backgroundService.getLikedCloth();
                 clotheAdapter = new ClotheAdapter(getApplicationContext(), arrayList);
                 clothesListView.setAdapter(clotheAdapter);
             }

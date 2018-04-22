@@ -54,17 +54,18 @@ public class UserActivity extends AppCompatActivity {
     ListView clothesList;
     List<String> clothes;
     RadioGroup radioGroup;
-    HashMap<String, Boolean> clothesPreferences1;
+    HashMap<String, Boolean> clothesPreferences;
     ProgressDialog progressDialog;
     boolean serviceBound;
     List<TagItem> tagList;
+    ArrayList<String> tagPreferences = new ArrayList<>();
 
     private BackgroundService backgroundService;
     private ServiceConnection backgroundServiceConnection;
 
     int age;
     String sex;
-    ArrayList<String> clothesPreferences;
+
 
 
     @Override
@@ -78,8 +79,8 @@ public class UserActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         userEmail.setText("Welcome: "+ user.getEmail());
-        clothesPreferences = new ArrayList<>();
-        clothesPreferences1 = new HashMap<String, Boolean>();
+
+        clothesPreferences = new HashMap<String, Boolean>();
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,16 +117,26 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //mangler en bedre løsnign til dette
+                if (tagList.get(i).isChecked()){
+                    tagList.get(i).setChecked(false);
+                }
+                else {
+                    tagList.get(i).setChecked(true);
+                }
 
-                if (clothesPreferences1.get(clothesList.getItemAtPosition(i).toString())!=null &&
-                        clothesPreferences1.get(clothesList.getItemAtPosition(i).toString())== true){
+               /* if (clothesPreferences.get(clothesList.getItemAtPosition(i).toString())!=null &&
+                        clothesPreferences.get(clothesList.getItemAtPosition(i).toString())== true){
                     Toast.makeText(UserActivity.this, "Removed", Toast.LENGTH_SHORT).show();
-                    clothesPreferences1.put(clothesList.getItemAtPosition(i).toString(), false);
-                    clothesPreferences1.put(tagList.get(i).getTagName(), false);
+                    //clothesPreferences.put(clothesList.getItemAtPosition(i).toString(), false);
+                    //clothesPreferences.put(tagList.get(i).getTagName(), false);
+
+
+
                 } else {
                     Toast.makeText(UserActivity.this, "Added", Toast.LENGTH_SHORT).show();
-                    clothesPreferences1.put(clothesList.getItemAtPosition(i).toString(), true);
-                }
+                    //clothesPreferences.put(clothesList.getItemAtPosition(i).toString(), true);
+                    //lothesPreferences.put(tagList.get(i).getTagName(), true);
+                }*/
 
 
             }
@@ -143,7 +154,13 @@ public class UserActivity extends AppCompatActivity {
             sex  = Globals.female;
         }
         age = pickerAge.getValue();
-        userPreferences = new UserPreferences(sex, age, clothesPreferences1);
+        tagPreferences = new ArrayList<>();
+        for (TagItem tag: tagList) {
+            if (tag.isChecked()){
+                tagPreferences.add(tag.getTagName());
+            }
+        }
+        userPreferences = new UserPreferences(age, sex, tagPreferences);
         backgroundService.saveUserInfo(userPreferences);
         Toast.makeText(this, "Information saved", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, BrowseActivity.class));
@@ -257,6 +274,16 @@ public class UserActivity extends AppCompatActivity {
                     //rbMan.setChecked(true);
                     Log.d("radiobutton", "onReceive: trying to set radiobutton male");
                     radioGroup.check(R.id.radioButtonMan);
+                }
+                for (TagItem tagItem : tagList) {
+                    if (userPreferences.getTags().contains(tagItem.getTagName())){
+                        tagItem.setChecked(true);
+                        clothesList.setItemChecked(tagItem.getPosistion(), true);
+                    }
+                    else {
+                       tagItem.setChecked(false);
+                        clothesList.setItemChecked(tagItem.getPosistion(), false);
+                    }
                 }
             }
             progressDialog.dismiss();
