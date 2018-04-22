@@ -10,7 +10,6 @@ import android.util.Log;
 import com.example.nicolai.clider.Utils.Globals;
 import com.example.nicolai.clider.Utils.Utils;
 import com.example.nicolai.clider.model.Clothe;
-import com.example.nicolai.clider.model.SwipedClothes;
 import com.example.nicolai.clider.model.UserPreferences;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,7 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class BackgroundService extends Service {
     FirebaseAuth firebaseAuth;
@@ -34,9 +32,6 @@ public class BackgroundService extends Service {
     public BackgroundService() {
     }
 
-    public ArrayList<Clothe> getBackgroundServiceClotheList() {
-        return backgroundServiceClotheList;
-    }
 
     public ArrayList<Clothe> backgroundServiceClotheList = new ArrayList<>();
 
@@ -70,7 +65,6 @@ public class BackgroundService extends Service {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mUserPreferences = dataSnapshot.getValue(UserPreferences.class);
-                //Log.d("user info", "onDataChange: " + mUserPreferences.getAge());
                 broadcastUserPreferences();
 
             }
@@ -85,15 +79,6 @@ public class BackgroundService extends Service {
         databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("clotheIds").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.getValue()!= null && clothesIds.contains(dataSnapshot.getValue().toString())){
-//                    clothesIds.add(dataSnapshot.getValue().toString());
-//                }
-//                if (dataSnapshot.getValue()!= null){
-//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                        mLikeClotheIds.add(snapshot.getValue().toString());
-//                        Log.d("mLike", "onDataChange: liked items called " + mLikeClotheIds.size());
-//                    }
-//                }
                 clothesIds = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Log.d("clothesIDS", "onDataChange: from" + snapshot.getValue().toString());
@@ -102,7 +87,6 @@ public class BackgroundService extends Service {
                         Log.d("clothesIDS", "onDataChange: from");
 
                 }
-                //Log.d("user info", "onDataChange: " + mUserPreferences.getAge());
                 broadcastSwipedClothe();
 
             }
@@ -117,13 +101,9 @@ public class BackgroundService extends Service {
     public void addClothe(Clothe clothe){
 
         backgroundServiceClotheList.add(clothe);
-        /*if (!clothesIds.contains(clothe.getId().toString())){
-            clothesIds.add(clothe.getId().toString());
-        }*/
+
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        //databaseReference.child(user.getUid()).setValue(mUserPreferences);
         databaseReference.child(user.getUid()).child("clotheIds").push().setValue(clothe.getId().toString());
-        //databaseReference.child(user.getUid()).child("clotheIds").updateChildren(clothesIds);
         Log.d("From service", "addClothe: added");
         Log.d("List size", "size: " + backgroundServiceClotheList.size());
         Log.d("clothe ID", "addClothe: " + clothe.getId());
@@ -149,7 +129,6 @@ public class BackgroundService extends Service {
          Log.d("User stored", "saveUserInfo: ");
         FirebaseUser user = firebaseAuth.getCurrentUser();
          Log.d("User", "saveUserInfo: " + user.getEmail());
-        //databaseReference.child(user.getUid()).setValue(userPreferences);
         databaseReference.child(user.getUid()).child("userPreferences").setValue(userPreferences);
      }
 
@@ -161,7 +140,6 @@ public class BackgroundService extends Service {
         Log.d("Sender", "broadcast userpreferences: ");
         Intent broadcastIntent = new Intent(Globals.userPreferencesBroadCast);
         broadcastIntent.putExtra(Globals.userPreferencesUpdated, Globals.userPreferencesUpdated);
-
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
     }
 
