@@ -36,6 +36,7 @@ public class BackgroundService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
+        Log.d("OnBind", "onBind: called ");
         return binder;
     }
 
@@ -49,6 +50,7 @@ public class BackgroundService extends Service {
         super.onCreate();
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference  = FirebaseDatabase.getInstance().getReference();
+        Log.d("ONCREATE", "onCreate: from service");
         retriveUserPreferences();
         retriveLikedClothesIds();
 
@@ -80,9 +82,7 @@ public class BackgroundService extends Service {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 clothesIds = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Log.d("clothesIDS", "onDataChange: from" + snapshot.getValue().toString());
                     clothesIds.add(snapshot.getValue().toString());
-                    Log.d("clothesIDS", "onDataChange: from");
                 }
                 broadcastSwipedClothe();
             }
@@ -114,7 +114,7 @@ public class BackgroundService extends Service {
         List<Clothe> allClothes = getAllClothes();
         List<Clothe> filteredClothes = new ArrayList<>();
          for (Clothe clothe: allClothes) {
-             if (mUserPreferences.getTags().contains(clothe.getTag())){
+             if (mUserPreferences.getTags().contains(clothe.getTag()) && mUserPreferences.getSex().equals(clothe.getSexTag())){
                  filteredClothes.add(clothe);
              }
          }
@@ -157,5 +157,11 @@ public class BackgroundService extends Service {
             }
         }
         return likedClothes;
+    }
+
+    @Override
+    public void onRebind(Intent intent) {
+        super.onRebind(intent);
+        Log.d("Rebind", "onRebind: called ");
     }
 }

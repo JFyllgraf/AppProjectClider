@@ -51,27 +51,27 @@ public class MainActivity extends AppCompatActivity {
 
     private void registerUser(){
         if (email_edit.getText()==null || TextUtils.isEmpty(email_edit.getText().toString())){
-            email_edit.setError("Please fill");
+            email_edit.setError(getResources().getString(R.string.fill));
             return;
         }
         if (password_edit.getText()==null || TextUtils.isEmpty(password_edit.getText().toString())){
-            password_edit.setError("Please fill");
+            password_edit.setError(getResources().getString(R.string.fill));
             return;
         }
         String email = email_edit.getText().toString().trim();
         String password = password_edit.getText().toString().trim();
 
 
-        progressDialog.setMessage("Registering.. ");
+        progressDialog.setMessage(getResources().getString(R.string.SigningUp));
         progressDialog.show();
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "Registered!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getResources().getString(R.string.doneRegistering), Toast.LENGTH_SHORT).show();
                     progressDialog.hide();
                 }else {
-                    Toast.makeText(MainActivity.this, "Could not register", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getResources().getString(R.string.failRegisterering), Toast.LENGTH_SHORT).show();
                     progressDialog.hide();
                 }
             }

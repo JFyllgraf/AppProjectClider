@@ -55,13 +55,13 @@ public class LoginActivity extends AppCompatActivity {
         String password = password_login.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)){
-            email_login.setError("Please fill");
+            email_login.setError(getResources().getString(R.string.fill));
         }
         if (TextUtils.isEmpty(password)){
-            password_login.setError("Please fill");
+            password_login.setError(getResources().getString(R.string.fill));
         }
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
-        progressDialog.setMessage("Login in.. ");
+        progressDialog.setMessage(getResources().getString(R.string.logginIn));
         progressDialog.show();
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 progressDialog.dismiss();
-                Toast.makeText(LoginActivity.this, "Unknown user, try again", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, getResources().getString(R.string.unknownUser), Toast.LENGTH_LONG).show();
             }
         });
     }

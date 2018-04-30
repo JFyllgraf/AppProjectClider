@@ -77,7 +77,7 @@ public class UserActivity extends AppCompatActivity {
         bindToBackgroundService();
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        userEmail.setText("Welcome: "+ user.getEmail());
+        userEmail.setText(getResources().getString(R.string.profil));
 
         clothesPreferences = new HashMap<String, Boolean>();
 
@@ -99,7 +99,7 @@ public class UserActivity extends AppCompatActivity {
         pickerAge.setMinValue(12);
         pickerAge.setMaxValue(90);
         setUpClothesList();
-        progressDialog.setMessage("Fetching preferences.. ");
+        progressDialog.setMessage(getResources().getString(R.string.fetch));
         progressDialog.show();
 
         SparseBooleanArray checkedItems = clothesList.getCheckedItemPositions();
@@ -137,7 +137,7 @@ public class UserActivity extends AppCompatActivity {
         }
         userPreferences = new UserPreferences(age, sex, tagPreferences);
         backgroundService.saveUserInfo(userPreferences);
-        Toast.makeText(this, "Information saved", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.saved), Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, BrowseActivity.class));
         finish();
     }
@@ -171,14 +171,14 @@ public class UserActivity extends AppCompatActivity {
 
     private void setUpTagList() {
         tagList = new ArrayList<>();
-        tagList.add(new TagItem(Globals.shoeTagName, 0, false, Globals.shoeTag));
-        tagList.add(new TagItem(Globals.dressTagName, 1, false, Globals.dressTag));
-        tagList.add(new TagItem(Globals.tshirtTagName, 2, false, Globals.tshirtTag));
-        tagList.add(new TagItem(Globals.hatTagName, 3, false, Globals.hatTag));
-        tagList.add(new TagItem(Globals.accessoriesTagName, 4, false, Globals.accessoriesTag));
-        tagList.add(new TagItem(Globals.sportTagName, 5, false, Globals.sportTag));
-        tagList.add(new TagItem(Globals.jacketTagName, 6, false, Globals.jacketTag));
-        tagList.add(new TagItem(Globals.shortsTagName, 7, false, Globals.shortsTag));
+        tagList.add(new TagItem(getResources().getString(R.string.Shoes), 0, false, Globals.shoeTag));
+        tagList.add(new TagItem(getResources().getString(R.string.Dresses), 1, false, Globals.dressTag));
+        tagList.add(new TagItem(getResources().getString(R.string.Tshirts), 2, false, Globals.tshirtTag));
+        tagList.add(new TagItem(getResources().getString(R.string.Hats), 3, false, Globals.hatTag));
+        tagList.add(new TagItem(getResources().getString(R.string.Accessories), 4, false, Globals.accessoriesTag));
+        tagList.add(new TagItem(getResources().getString(R.string.SportsClothes), 5, false, Globals.sportTag));
+        tagList.add(new TagItem(getResources().getString(R.string.Jackets), 6, false, Globals.jacketTag));
+        tagList.add(new TagItem(getResources().getString(R.string.Shorts), 7, false, Globals.shortsTag));
     }
 
     private void setUpConnectionToBackgroundService(){
@@ -187,6 +187,7 @@ public class UserActivity extends AppCompatActivity {
             public void onServiceConnected(ComponentName name, IBinder service) {
                 backgroundService = ((BackgroundService.BackgroundServiceBinder)service).getService();
                 Log.d("From service", "onServiceConnected: Connected");
+                backgroundService.retriveUserPreferences();
             }
 
             @Override

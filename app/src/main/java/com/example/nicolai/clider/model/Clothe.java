@@ -42,6 +42,33 @@ public class Clothe implements Serializable{
     @Expose
     private String tag;
 
+    @SerializedName("webshopurl")
+    @Expose
+    private String webshopUrl;
+
+    @SerializedName("sexTag")
+    @Expose
+    private String sexTag;
+
+    @SerializedName("price")
+    @Expose
+    private String price;
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getSexTag() {
+        return sexTag;
+    }
+
+    public void setSexTag(String sexTag) {
+        this.sexTag = sexTag;
+    }
 
     public String getTag() {
         return tag;
@@ -81,5 +108,13 @@ public class Clothe implements Serializable{
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getWebshopUrl() {
+        return webshopUrl;
+    }
+
+    public void setWebshopUrl(String webshopUrl) {
+        this.webshopUrl = webshopUrl;
     }
 }

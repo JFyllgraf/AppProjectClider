@@ -11,6 +11,9 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.webkit.WebView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -31,6 +34,7 @@ public class ListActivity extends AppCompatActivity {
     private BackgroundService backgroundService;
     private ServiceConnection backgroundServiceConnection;
     boolean serviceBound;
+    WebView webView;
 
 
     @Override
@@ -38,6 +42,8 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         clothesListView = findViewById(R.id.clothesListView);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        webView = findViewById(R.id.webView);
 
         setUpConnectionToBackgroundService();
         bindToBackgroundService();
@@ -76,6 +82,14 @@ public class ListActivity extends AppCompatActivity {
                 arrayList = backgroundService.getLikedCloth();
                 clotheAdapter = new ClotheAdapter(getApplicationContext(), arrayList);
                 clothesListView.setAdapter(clotheAdapter);
+                clothesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        webView.loadUrl(arrayList.get(position).getWebshopUrl());
+                        webView.setVisibility(View.VISIBLE);
+
+                    }
+                });
             }
 
         }
@@ -100,5 +114,11 @@ public class ListActivity extends AppCompatActivity {
             unbindService(backgroundServiceConnection);
             serviceBound = false;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        webView.setVisibility(View.INVISIBLE);
     }
 }

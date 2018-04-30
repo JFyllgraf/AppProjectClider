@@ -14,8 +14,39 @@
     <string name="preferences">Which clothes are you interested in?</string>
     <string name="myList">Go to liked items</string>
     <string name="likeItems">Your liked items!: </string>
+    <string name="Shoes">Shoes</string>
+    <string name="Jackets">Jackets</string>
+    <string name="Dresses">Dresses</string>
+    <string name="Hats">Hats</string>
+    <string name="Tshirts">T-Shirts</string>
+    <string name="Shorts">Shorts</string>
+    <string name="SportsClothes">Sports clothes</string>
+    <string name="Accessories">Accessories</string>
+    <string name="myPrefs">My preferences</string>
+    <string name="myClotheList">Check my liked items</string>
+    <string name="setPreferences">Set you preferences!</string>
+    <string name="swipe">Get swiping</string>
+    <string name="myListString">My List</string>
+    <string name="logginIn">Logging in..</string>
+    <string name="SigningUp">Signing up..</string>
+    <string name="fetch">Fetching preferences..</string>
+    <string name="fill">Please fill</string>
+    <string name="doneRegistering">Registered!</string>
+    <string name="failRegisterering">Could not register</string>
+    <string name="unknownUser">Unknown user, try again!</string>
+    <string name="saved">Information saved</string>
+    <string name="profil">Your profile!</string>
+    <string name="modelName">Model name: </string>
+    <string name="locationName">This can be bought at: </string>
+    <string name="price">Cost: </string>
+    <string name="suffixPrice">DKK</string>
+
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_clothe_list">clothes</string>
+    <string name="title_clothe_detail">clothe Detail</string>
 
 </resources>

@@ -7,6 +7,8 @@ public class Globals {
     public static String userPreferencesUpdated = "USERPREFS_UPDATED";
     public static String swipedClotheBroadcast = "SWIPED_CLOTHE_BROADCAST";
     public static String swipedClotheUpdated = "SWIPED_CLOTHE_UPDATED";
+    public static String clickMessage = "CLICK_MESSAGE";
+    public static String clickDoneMessage = "CLICK_DONE_MESSAGE";
 
     public static String shoeTag = "SHOE_TAG";
     public static String jacketTag = "JACKET_TAG";

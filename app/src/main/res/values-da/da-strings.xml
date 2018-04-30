@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Clider</string>
+    <string name="email">Email</string>
+    <string name="password">Kodeord</string>
+    <string name="signUp">Registrer</string>
+    <string name="login">Log ind</string>
+    <string name="man">Mand</string>
+    <string name="woman">Kvinde</string>
+    <string name="signUpText">Ikke en bruger endnu? Registrer her</string>
+    <string name="loginText">Allerede bruger? Log ind her</string>
+    <string name="logOut">Log ud</string>
+    <string name="browse">Udforsk!</string>
+    <string name="age">Alder</string>
+    <string name="preferences">Filtrer efter præferencer:</string>
+    <string name="myList">Gå til din liste!</string>
+    <string name="likeItems">Dine favoritter: </string>
+    <string name="Shoes">Sko</string>
+    <string name="Jackets">Jakker</string>
+    <string name="Dresses">Kjoler</string>
+    <string name="Hats">Hatte</string>
+    <string name="Tshirts">T-Shirts</string>
+    <string name="Shorts">Shorts</string>
+    <string name="SportsClothes">Sports tøj</string>
+    <string name="Accessories">Tilbehør</string>
+
+    <string name="myPrefs">Mine præferencer</string>
+    <string name="myClotheList">Se mine favoritter</string>
+    <string name="setPreferences">Sæt dine præferencer</string>
+    <string name="swipe">Udforsk!</string>
+    <string name="myListString">Min liste</string>
+
+    <string name="logginIn">Logger ind..</string>
+    <string name="SigningUp">Registrerer..</string>
+    <string name="fetch">Henter præferencer..</string>
+
+    <string name="fill">Skal udfyldes</string>
+    <string name="doneRegistering">Registreret!</string>
+    <string name="failRegisterering">Kunne ikke registrere</string>
+    <string name="unknownUser">Ukendt bruger, prøv igen!</string>
+    <string name="saved">Information gemt</string>
+    <string name="profil">Din profil!</string>
+    <string name="modelName">Model navn: </string>
+    <string name="locationName">Denne vare kan købes i: </string>
+    <string name="price">Pris: </string>
+    <string name="suffixPrice">DKK</string>
+
+
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_clothe_list">clothes</string>
+    <string name="title_clothe_detail">clothe Detail</string>
+
+</resources>

@@ -1,7 +1,10 @@
 package com.example.nicolai.clider.model;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.ImageView;
@@ -90,6 +93,7 @@ public class ClotheCardView {
     private void onClick(){
         Log.d("EVENT", "profileImageView click");
 //        mSwipeView.addView(this);
+        broadcastClothe(mClothe, Globals.clickMessage);
     }
 
     @SwipeOut
@@ -106,7 +110,7 @@ public class ClotheCardView {
     @SwipeIn
     private void onSwipeIn(){
         arrayList.add(mClothe);
-        broadcastClothe(mClothe);
+        broadcastClothe(mClothe, Globals.cardSwipeMessage);
         Log.d("EVENT", "onSwipedIn");
     }
 
@@ -120,12 +124,16 @@ public class ClotheCardView {
         Log.d("EVENT", "onSwipeOutState");
     }
 
-    private void broadcastClothe(Clothe clothe){
+    private void broadcastClothe(Clothe clothe, String message){
         Log.d("Sender", "broadcastClothe: ");
         Intent broadcastIntent = new Intent(Globals.clotheBroadcast);
         broadcastIntent.putExtra(Globals.cardSwipeMessage, clothe);
+        broadcastIntent.putExtra("message", message);
         //broadcastIntent.setAction(BROADCAST_BACKGROUND_SERVICE_RESULT);
         LocalBroadcastManager.getInstance(mContext).sendBroadcast(broadcastIntent);
     }
+
+
+
 
 }

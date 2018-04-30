@@ -1,45 +1,144 @@
 [  
    {
       "id": "2ff0d60d-547d-4e57-9513-008f8b9febd8",
-      "url":"https://dsw.scene7.com/is/image/DSWShoes/377442_001_ss_01?$pdp-image$",
-      "name":"Nike Shoe",
-      "location":"H&M",
-      "tag": "SHOE_TAG"
+      "url":"https://mosaic01.ztat.net/vgs/media/pdp-zoom/TO/11/2B/02/SA/11/TO112B02S-A11@12.jpg",
+      "name":"HARRINGTON - Tommy Hilfiger",
+      "location":"Zalando",
+      "tag": "SHOE_TAG",
+      "webshopurl": "https://www.zalando.dk/tommy-hilfiger-harrington-sneakers-to112b02s-a11.html",
+      "sexTag": "FEMALE",
+      "price": "249"
    },
    {
       "id": "2135eb0e-fb54-45d8-b1e5-661df1a882e2",
-      "url":"http://i.imgur.com/Aw9GF.jpg",
-      "name":"Hugo Boss Shoe",
-      "location":"Hugo Boss Store",
-      "tag": "SHOE_TAG"
+      "url":"https://mosaic01.ztat.net/vgs/media/pdp-zoom/AD/11/6D/0A/YB/11/AD116D0AY-B11@11.jpg",
+      "name":"SWIFT RUN - adidas Originals",
+      "location":"Zalando",
+      "tag": "SHOE_TAG",
+      "webshopurl": "https://www.zalando.dk/adidas-originals-swift-run-sneakers-ad116d0ay-b11.html",
+      "sexTag": "FEMALE",
+      "price": "370"
    },
    {
       "id": "29d52e4a-96a3-4fd1-a42f-c28887eee60c",
-      "url":"http://cdn.cichic.com/media/catalog/product/cache/1/image/5e06319eda06f020e43594a9c230972d/1/0/10107508401-1/green-shamrock-print-lace-pleated-tutu-st-patrick-s-day-party-cute-midi-dress.jpg",
-      "name":"Dress",
-      "location":"Dress store",
-      "tag": "DRESS_TAG"
+      "url":"http://lp2.hm.com/hmgoepprod?set=source[/28/6a/286a3457a07c431e8c96ff02fd753dd1437c9ef9.jpg],origin[dam],category[ladies_dresses_shortdresses],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]",
+      "name":"Off shoulder-kjole i bomuld",
+      "location":"H&M",
+      "tag": "DRESS_TAG",
+      "webshopurl": "http://www2.hm.com/da_dk/productpage.0584327004.html",
+      "sexTag": "FEMALE",
+      "price": "150"
    },
    {
       "id": "5e1a7f5f-0e2f-4d4b-9b7e-6bf7e2a8b41d",
-      "url":"https://images-na.ssl-images-amazon.com/images/I/61Z2xQ7rAML._UX342_.jpg",
-      "name":"Dress 2",
-      "location":"Another store",
-      "tag": "DRESS_TAG"
+      "url":"https://mosaic01.ztat.net/vgs/media/pdp-zoom/AD/12/1C/03/9Q/11/AD121C039-Q11@8.jpg",
+      "name":"ADICOLOR THREE STRIPES DRESS - Adidas Originals",
+      "location":"Zalando",
+      "tag": "DRESS_TAG",
+      "webshopurl": "https://www.zalando.dk/adidas-originals-3-stripes-dress-jerseykjoler-ad121c039-q11.html",
+      "sexTag": "FEMALE",
+      "price": "230"
    },
    {
       "id": "b28b081d-b3d9-40d7-81bc-ce81c0e376df",
-      "url":"https://5.imimg.com/data5/QO/GO/MY-8555540/mens-pure-leather-jacket-500x500.jpg",
-      "name":"Mens Jacket",
-      "location":"Jacket store",
-      "tag": "JACKET_TAG"
+      "url":"http://lp2.hm.com/hmgoepprod?set=source[/b1/83/b18328440e8bbf144585a480019e090ccc0af636.jpg],origin[dam],category[men_jacketscoats_jackets],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]",
+      "name":"Denimjacket",
+      "location":"H&M",
+      "tag": "JACKET_TAG",
+      "webshopurl": "http://www2.hm.com/da_dk/productpage.0497640002.html",
+      "sexTag": "MALE",
+      "price": "500"
    },
    {
       "id": "bc057bd8-0e15-4e40-b38a-785fd16e8e6f",
-      "url":"http://arrowshopping.com/wp-content/uploads/products_img/arrow%20mens-designer-leather-jackets.jpg",
-      "name":"Another mens jacket",
-      "location":"Jacket store 2",
-      "tag": "JACKET_TAG"
+      "url":"http://lp2.hm.com/hmgoepprod?set=source[/0b/6a/0b6aeeec5b6aab225e531bda9fb5a8b3e4ff9b31.jpg],origin[dam],category[men_jacketscoats_jackets],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]",
+      "name":"Anorak",
+      "location":"H&M",
+      "tag": "JACKET_TAG",
+      "webshopurl": "http://www2.hm.com/da_dk/productpage.0599945002.html",
+      "sexTag": "MALE",
+      "price": "650"
+   },
+   {
+      "id": "21b47811-4e17-461e-8319-4e737a90cf44",
+      "url":"http://lp2.hm.com/hmgoepprod?set=source[/59/6c/596c459df487a3161345405df4b6eae82f68926b.jpg],origin[dam],category[ladies_accessories_sunglasses],type[DESCRIPTIVESTILLLIFE],res[x],hmver[1]&call=url[file:/product/fullscreen]",
+      "name":"Polarized sunglasses ",
+      "location":"H&M",
+      "tag": "ACCESSORIES_TAG",
+      "webshopurl": "http://www2.hm.com/da_dk/productpage.0481347006.html",
+      "sexTag": "FEMALE",
+      "price": "250"
+   },
+   {
+      "id": "35cec0c2-88bf-4c04-bfb0-7da21f574364",
+      "url":"https://images.booztx.com/lauren-ralph-lauren/183x239/raf454706818_clightblue_v10000672wis.jpg",
+      "name":"LAUREN RALPH LAUREN",
+      "location":"Boozt",
+      "tag": "ACCESSORIES_TAG",
+      "webshopurl": "https://www.boozt.com/dk/da/lauren-ralph-lauren/dotted-bridle-print-silk-scarf_17061549/17061550?navId=67705&group=listing&position=1000000",
+      "sexTag": "FEMALE",
+      "price": "649"
+   },
+   {
+      "id": "58a303c5-efaa-40f0-8716-b7db00e3349b",
+      "url":"http://images.asos-media.com/products/asos-jersey-polo-in-navy/8895134-2?$XXL$&wid=513&fit=constrain",
+      "name":"ASOS Jersey Polo in Navy",
+      "location":"ASOS",
+      "tag": "TSHIRT_TAG",
+      "webshopurl": "http://www.asos.com/asos/asos-jersey-polo-in-navy/prd/8895134?clr=navy&SearchQuery=&cid=7616&gridcolumn=4&gridrow=7&gridsize=4&pge=1&pgesize=72&totalstyles=4731",
+      "sexTag": "MALE",
+      "price": "300"
+   },
+   {
+      "id": "a25a1640-7fe3-4f93-a520-3bbd18f7a626",
+      "url":"https://shop.bestseller.com/dw/image/v2/ABBT_PRD/on/demandware.static/-/Sites-pim-catalog/default/dwb92a4d44/pim-static/large/15148962_Black_629110_001_ProductLarge.jpg?sw=685",
+      "name":"Seamless training bra",
+      "location":"Bestseller",
+      "tag": "SPORT_TAG",
+      "webshopurl": "https://shop.bestseller.com/dk/da/bc/kvinder/sportstoej/seamless-traeningsbh-15148962.html?cgid=bc-women-sportswear&dwvar_colorPattern=15148962_Black_629110",
+      "sexTag": "FEMALE",
+      "price": "170"
+   },
+   {
+      "id": "67c704fa-fba1-45b3-a59a-640d4c0618d8",
+      "url":"https://shop.bestseller.com/dw/image/v2/ABBT_PRD/on/demandware.static/-/Sites-pim-catalog/default/dwbeaaa0e2/pim-static/large/12110182_BronzeGreen_001_ProductLarge.jpg?sw=1920",
+      "name":"THINSULATE BEANIE",
+      "location":"Bestseller",
+      "tag": "HAT_TAG",
+      "webshopurl": "https://shop.bestseller.com/dk/da/bc/maend/accessories/huer/thinsulate-beanie-12110182.html?cgid=bc-men-hats&dwvar_colorPattern=12110182_BronzeGreen",
+      "sexTag": "MALE",
+      "price": "210"
+   },
+   {
+      "id": "11d635cf-ab9f-4978-b793-9f13eac1bbae",
+      "url":"http://images.asos-media.com/products/stradivarius-denim-shorts-in-beige/10047409-1-beige?$XXL$&wid=513&fit=constrain",
+      "name":"Stradivarius Denim Shorts In Beige",
+      "location":"ASOS",
+      "tag": "SHORTS_TAG",
+      "webshopurl": "http://www.asos.com/stradivarius/stradivarius-denim-shorts-in-beige/prd/10047409?clr=beige&SearchQuery=&cid=7078&gridcolumn=2&gridrow=2&gridsize=4&pge=1&pgesize=72&totalstyles=627",
+      "sexTag": "MALE",
+      "price": "339"
+   },
+   {
+      "id": "df39904d-3d11-48fe-ac75-b495213f4da3",
+      "url":"https://images.booztx.com/kari-traa/183x239/kta622026_cmauve.jpg",
+      "name":"KARI TRAA",
+      "location":"Boozt",
+      "tag": "SPORT_TAG",
+      "webshopurl": "https://www.boozt.com/dk/da/kari-traa/tina-tee_17265620/17265630?navId=68542&group=listing&position=1000000",
+      "sexTag": "FEMALE",
+      "price": "229"
+   },
+   {
+      "id": "3381b681-fede-41d5-bc92-f036aa6cd762",
+      "url":"https://images.booztx.com/holzweiler/183x239/holu1811301_cred.jpg",
+      "name":"HOLZWEILER Beanie",
+      "location":"Boozt",
+      "tag": "HAT_TAG",
+      "webshopurl": "https://www.boozt.com/dk/da/holzweiler/memerized-beanie_17123149/17123151?navId=67706&group=listing&position=1000000",
+      "sexTag": "MALE",
+      "price": "75"
    }
+
 
 ]
