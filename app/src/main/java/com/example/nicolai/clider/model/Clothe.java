@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.UUID;
 
+//Used for converting from JSON into a java object - clothe.
 public class Clothe implements Serializable{
     @SerializedName("name")
     @Expose

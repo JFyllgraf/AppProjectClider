@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Method for registering a user with Firebase's own method. Also checking the fields for not being empty
     private void registerUser(){
         if (email_edit.getText()==null || TextUtils.isEmpty(email_edit.getText().toString())){
             email_edit.setError(getResources().getString(R.string.fill));

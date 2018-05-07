@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by Nicolai on 09/04/2018.
- */
 
+
+//Data object for user preferences, for sending to firebase
 public class UserPreferences {
 
     public UserPreferences(int age, String sex, ArrayList<String> tags) {

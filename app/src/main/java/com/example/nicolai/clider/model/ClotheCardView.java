@@ -33,6 +33,9 @@ import java.util.ArrayList;
 import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
+//Most of this is from https://blog.mindorks.com/android-tinder-swipe-view-example-3eca9b0d4794
+//This is for building the swipeview and registering the different types of swipes.
+
 @Layout(R.layout.clothes_view)
 public class ClotheCardView {
 
@@ -89,6 +92,7 @@ public class ClotheCardView {
         cardView.invalidate();
     }
 
+    //Broadcasting the click for displaying price etc of the particular clothe item
     @Click(R.id.clotheImage)
     private void onClick(){
         Log.d("EVENT", "profileImageView click");
@@ -107,6 +111,7 @@ public class ClotheCardView {
         Log.d("EVENT", "onSwipeCancelState");
     }
 
+    //Broadcast the "like" swipe for adding the cloth's id to firebase.
     @SwipeIn
     private void onSwipeIn(){
         arrayList.add(mClothe);
@@ -124,6 +129,7 @@ public class ClotheCardView {
         Log.d("EVENT", "onSwipeOutState");
     }
 
+    //The broadcast
     private void broadcastClothe(Clothe clothe, String message){
         Log.d("Sender", "broadcastClothe: ");
         Intent broadcastIntent = new Intent(Globals.clotheBroadcast);

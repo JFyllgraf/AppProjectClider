@@ -1,5 +1,6 @@
 package com.example.nicolai.clider.Utils;
 
+//Globals used to diffentiate between broadcasts
 public class Globals {
     public static String cardSwipeMessage = "CARD_SWIPE_MESSAGE";
     public static String clotheBroadcast = "CLOTHE_BROADCAST";

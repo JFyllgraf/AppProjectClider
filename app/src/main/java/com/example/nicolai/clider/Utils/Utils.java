@@ -21,6 +21,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+// The converter class for loading the JSON file with clothes, inspiration took from https://blog.mindorks.com/android-tinder-swipe-view-example-3eca9b0d4794
+// Also handles some math behind the screensize and the images in the browse activity; not something we have done our self, but from https://blog.mindorks.com/android-tinder-swipe-view-example-3eca9b0d4794
 public class Utils {
     private static final String TAG = "Utils";
 

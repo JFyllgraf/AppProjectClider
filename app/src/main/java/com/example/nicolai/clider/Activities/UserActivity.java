@@ -102,6 +102,7 @@ public class UserActivity extends AppCompatActivity {
         progressDialog.setMessage(getResources().getString(R.string.fetch));
         progressDialog.show();
 
+        //For checking which items in the preference list is checked.
         SparseBooleanArray checkedItems = clothesList.getCheckedItemPositions();
         for (int j = 0; j < checkedItems.size() ; j++) {
             if (checkedItems.get(j)){
@@ -109,6 +110,7 @@ public class UserActivity extends AppCompatActivity {
             } else {
                 clothesList.setItemChecked(j, false);}
             }
+            //Check & uncheck tagitems for sending preferences to firebase.
         clothesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -121,6 +123,7 @@ public class UserActivity extends AppCompatActivity {
             }
         });
     }
+    //Saving the users preferences by reading the selected values in the view. Calling BG-service saveuserInfo with the created userpreference object
     private void saveUserInfo(){
         if (rbMan.isChecked()){
             sex = Globals.male;
@@ -142,6 +145,7 @@ public class UserActivity extends AppCompatActivity {
         finish();
     }
 
+    //Creating a simple checklist with androids own multi-chice layout.
     private void setUpClothesList(){
         clothes = new ArrayList<String>();
         for (TagItem tagitem: tagList) {
@@ -169,6 +173,7 @@ public class UserActivity extends AppCompatActivity {
 
     }
 
+    //Using "TagItems" we store type, posistion in the array, if checked, and their tag.
     private void setUpTagList() {
         tagList = new ArrayList<>();
         tagList.add(new TagItem(getResources().getString(R.string.Shoes), 0, false, Globals.shoeTag));
@@ -181,6 +186,7 @@ public class UserActivity extends AppCompatActivity {
         tagList.add(new TagItem(getResources().getString(R.string.Shorts), 7, false, Globals.shortsTag));
     }
 
+    //Retrieving userpreferences when connected to BGservice.
     private void setUpConnectionToBackgroundService(){
         backgroundServiceConnection = new ServiceConnection() {
             @Override
@@ -225,6 +231,7 @@ public class UserActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(onUserPreferencesRecieved);
     }
 
+    //Retrieving the users preferences(if any) when broadcasted. And sets them accrodingly. Persistance is done through firebase.
     private BroadcastReceiver onUserPreferencesRecieved = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {

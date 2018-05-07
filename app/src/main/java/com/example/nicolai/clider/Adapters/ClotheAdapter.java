@@ -43,6 +43,7 @@ public class ClotheAdapter extends BaseAdapter {
         return position;
     }
 
+    //Custom adapter for our listview, setting up image, text + location sold.
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null){

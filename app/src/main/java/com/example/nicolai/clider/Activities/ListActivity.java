@@ -55,6 +55,7 @@ public class ListActivity extends AppCompatActivity {
         serviceBound = true;
     }
 
+    //Connecting to BG-service. When connected retrieve list of like clothes ID's.
     private void setUpConnectionToBackgroundService(){
         backgroundServiceConnection = new ServiceConnection() {
             @Override
@@ -72,7 +73,7 @@ public class ListActivity extends AppCompatActivity {
             }
         };
     }
-
+    //Building the list with our adapter, when the background service makes the apropriate broadcast. Also sets onlick listeners for the link to the clothes
     private BroadcastReceiver onLikedClotheResult = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -116,6 +117,7 @@ public class ListActivity extends AppCompatActivity {
         }
     }
 
+    //Small "hack" making the webview invisible when the app is resumed.
     @Override
     protected void onResume() {
         super.onResume();

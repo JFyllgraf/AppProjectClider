@@ -120,7 +120,7 @@ public class BrowseActivity extends AppCompatActivity {
         }
     }
 
-    //Connect to backgroundservice
+    //Connect to backgroundservice and building the view when connected, since the list of clothes is being created from the backgroundservice
     private void setUpConnectionToBackgroundService(){
         backgroundServiceConnection = new ServiceConnection() {
             @Override

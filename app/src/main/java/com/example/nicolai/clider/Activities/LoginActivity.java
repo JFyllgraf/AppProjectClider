@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    //Method for logging user in with Firebase own method - also does checks for fields and creating a progresdialog while waiting for the firebase response.
     private void logUserIn(){
         String email = email_login.getText().toString().trim();
         String password = password_login.getText().toString().trim();

@@ -22,11 +22,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+//Our service handling most of the logic and database work
 public class BackgroundService extends Service {
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
     UserPreferences mUserPreferences;
     List<String> clothesIds;
+
 
     public BackgroundService() {
     }
@@ -45,6 +47,7 @@ public class BackgroundService extends Service {
     }
     private final IBinder binder = new BackgroundServiceBinder();
 
+    //When oncreate is called, we retrieve the users preferences + which clothes has been liked
     @Override
     public void onCreate() {
         super.onCreate();
@@ -61,6 +64,8 @@ public class BackgroundService extends Service {
         super.onDestroy();
     }
 
+
+    //Getting the users preferences, and on datachange(data return) we broadcast this event.
     public void retriveUserPreferences(){
         databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("userPreferences").addValueEventListener(new ValueEventListener() {
             @Override
@@ -76,6 +81,8 @@ public class BackgroundService extends Service {
             }
         });
     }
+
+    //Retrieve a list for liked clothes ID's for the list activity.
     public void retriveLikedClothesIds(){
         databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("clotheIds").addValueEventListener(new ValueEventListener() {
             @Override
@@ -94,6 +101,7 @@ public class BackgroundService extends Service {
         });
     }
 
+    //Storing the liked clothe's ID to firebase under the current user.
     public void addClothe(Clothe clothe){
 
         backgroundServiceClotheList.add(clothe);
@@ -106,6 +114,7 @@ public class BackgroundService extends Service {
         Log.d("Liked Items size", "addClothe: " + clothesIds.size());
      }
 
+     //The total converted Json file into clothe objects
      public List<Clothe> getAllClothes(){
         return Utils.loadClothes(this.getApplicationContext());
      }
@@ -121,6 +130,7 @@ public class BackgroundService extends Service {
          return filteredClothes;
      }
 
+     //Saving the users preferences
      public void saveUserInfo(UserPreferences userPreferences){
          Log.d("User stored", "saveUserInfo: ");
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -132,6 +142,7 @@ public class BackgroundService extends Service {
         return mUserPreferences;
     }
 
+    //The broadcast being called when the users preferences has been retrieved
     private void broadcastUserPreferences(){
         Log.d("Sender", "broadcast userpreferences: ");
         Intent broadcastIntent = new Intent(Globals.userPreferencesBroadCast);
@@ -139,6 +150,7 @@ public class BackgroundService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
     }
 
+    //The broadcast being called when the list of liked clothe ID's has been retrieved.
     private void broadcastSwipedClothe(){
         Log.d("Sender", "broadcast swipedClothe: ");
         Intent broadcastIntent = new Intent(Globals.swipedClotheBroadcast);
@@ -147,7 +159,7 @@ public class BackgroundService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
     }
 
-
+    //Filthering the total list of flothes with the liked clothes list.
     public ArrayList<Clothe>getLikedCloth(){
         List<Clothe> allClothes = getAllClothes();
         ArrayList<Clothe> likedClothes = new ArrayList<>();

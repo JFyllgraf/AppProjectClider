@@ -1,5 +1,6 @@
 package com.example.nicolai.clider.model;
 
+//Data object for keeping track of each clothe in the preference list.
 public class TagItem {
     private String name;
     private int posistion;
