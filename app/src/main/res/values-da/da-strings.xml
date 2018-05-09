@@ -7,8 +7,9 @@
     <string name="login">Log ind</string>
     <string name="man">Mand</string>
     <string name="woman">Kvinde</string>
-    <string name="signUpText">Ikke en bruger endnu? Registrer her</string>
-    <string name="loginText">Allerede bruger? Log ind her</string>
+    <string name="signUpText">Ikke en bruger endnu? Registrer </string>
+    <string name="loginText">Allerede bruger? Log ind </string>
+    <string name="here">her</string>
     <string name="logOut">Log ud</string>
     <string name="browse">Udforsk!</string>
     <string name="age">Alder</string>
