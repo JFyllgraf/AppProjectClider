@@ -29,7 +29,6 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Activities.TestStorageActivity" />
         <activity
             android:name=".Activities.BrowsingActivities.BrowseActivity"
             android:label="@string/swipe"

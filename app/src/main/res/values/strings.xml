@@ -10,11 +10,11 @@
     <string name="loginText">Already have a user? Log in </string>
     <string name="here">here</string>
     <string name="logOut">Log out</string>
-    <string name="browse">Browse!</string>
+    <string name="browse">Browse</string>
     <string name="age">Age</string>
-    <string name="preferences">Which clothes are you interested in?</string>
+    <string name="preferences">Select clothing categories</string>
     <string name="myList">Go to liked items</string>
-    <string name="likeItems">Your liked items!: </string>
+    <string name="likeItems">Your liked items</string>
     <string name="Shoes">Shoes</string>
     <string name="Jackets">Jackets</string>
     <string name="Dresses">Dresses</string>
@@ -25,7 +25,7 @@
     <string name="Accessories">Accessories</string>
     <string name="myPrefs">My preferences</string>
     <string name="myClotheList">Check my liked items</string>
-    <string name="setPreferences">Set you preferences!</string>
+    <string name="setPreferences">Preferences</string>
     <string name="swipe">Get swiping</string>
     <string name="myListString">My List</string>
     <string name="logginIn">Logging in..</string>
@@ -36,11 +36,12 @@
     <string name="failRegisterering">Could not register</string>
     <string name="unknownUser">Unknown user, try again!</string>
     <string name="saved">Information saved</string>
-    <string name="profil">Your profile!</string>
+    <string name="profil">Profile</string>
     <string name="modelName">Model name: </string>
     <string name="locationName">This can be bought at: </string>
     <string name="price">Cost: </string>
     <string name="suffixPrice">DKK</string>
+    <string name="gender">Gender</string>
 
 
 

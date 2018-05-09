@@ -11,11 +11,11 @@
     <string name="loginText">Allerede bruger? Log ind </string>
     <string name="here">her</string>
     <string name="logOut">Log ud</string>
-    <string name="browse">Udforsk!</string>
+    <string name="browse">Udforsk</string>
     <string name="age">Alder</string>
-    <string name="preferences">Filtrer efter præferencer:</string>
+    <string name="preferences">Vælg tøj kategorier</string>
     <string name="myList">Gå til din liste!</string>
-    <string name="likeItems">Dine favoritter: </string>
+    <string name="likeItems">Dine favoritter</string>
     <string name="Shoes">Sko</string>
     <string name="Jackets">Jakker</string>
     <string name="Dresses">Kjoler</string>
@@ -27,7 +27,7 @@
 
     <string name="myPrefs">Mine præferencer</string>
     <string name="myClotheList">Se mine favoritter</string>
-    <string name="setPreferences">Sæt dine præferencer</string>
+    <string name="setPreferences">Præferencer</string>
     <string name="swipe">Udforsk!</string>
     <string name="myListString">Min liste</string>
 
@@ -40,11 +40,12 @@
     <string name="failRegisterering">Kunne ikke registrere</string>
     <string name="unknownUser">Ukendt bruger, prøv igen!</string>
     <string name="saved">Information gemt</string>
-    <string name="profil">Din profil!</string>
+    <string name="profil">Profil</string>
     <string name="modelName">Model navn: </string>
     <string name="locationName">Denne vare kan købes i: </string>
     <string name="price">Pris: </string>
     <string name="suffixPrice">DKK</string>
+    <string name="gender">Køn</string>
 
 
 
