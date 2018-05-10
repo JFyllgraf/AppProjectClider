@@ -40,7 +40,6 @@ public class BrowseActivity extends AppCompatActivity {
 
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
-    private Button toList;
     private boolean serviceBound;
 
     private BackgroundService backgroundService;
@@ -50,22 +49,12 @@ public class BrowseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse1);
-        toList = findViewById(R.id.toListButton);
 
         mSwipeView = (SwipePlaceHolderView)findViewById(R.id.swipeView);
         mContext = getApplicationContext();
         setUpConnectionToBackgroundService();
         bindToBackgroundService();
 
-
-
-        toList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ListActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 

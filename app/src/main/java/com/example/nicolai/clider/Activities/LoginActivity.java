@@ -5,7 +5,13 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +40,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+
         initializeComponents();
+        sigin.setText(Html.fromHtml( getResources().getString(R.string.signUpText) + "<b>"+ "<font color=\"#449eff\">" + " " + getResources().getString(R.string.here) + "</b>"));
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

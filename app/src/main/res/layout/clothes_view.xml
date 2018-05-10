@@ -18,15 +18,18 @@
             android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="75dp"/>
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:orientation="vertical"
             android:layout_gravity="bottom"
             android:gravity="center|left"
-            android:paddingLeft="20dp">
+            android:paddingLeft="20dp"
+            android:background="#669b9b9b"
+            >
             <TextView
+                style="@style/AudioFileInfoOverlayText"
                 android:id="@+id/clotheType"
                 android:layout_width="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
@@ -35,6 +38,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
+                style="@style/AudioFileInfoOverlayText"
                 android:id="@+id/descriptionDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

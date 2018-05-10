@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 registerUser();
             }
         });
+
+        alreadyUser_txt.setText(Html.fromHtml( getResources().getString(R.string.loginText) + "<b>"+ "<font color=\"#3596ff\">" + " " + getResources().getString(R.string.here) + "</b>"));
         alreadyUser_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
