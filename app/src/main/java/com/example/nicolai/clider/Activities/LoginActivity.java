@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-
+        //Reference: https://stackoverflow.com/questions/4032676/how-can-i-change-the-color-of-a-part-of-a-textview?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
         initializeComponents();
         sigin.setText(Html.fromHtml( getResources().getString(R.string.signUpText) + "<b>"+ "<font color=\"#449eff\">" + " " + getResources().getString(R.string.here) + "</b>"));
 
