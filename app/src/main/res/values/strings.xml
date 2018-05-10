@@ -42,13 +42,13 @@
     <string name="price">Cost: </string>
     <string name="suffixPrice">DKK</string>
     <string name="gender">Gender</string>
-
-
+    <string name="places">Nearby clothe shops</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_clothe_list">clothes</string>
     <string name="title_clothe_detail">clothe Detail</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.nicolai.clider.Activities.ListActivity;
+import com.example.nicolai.clider.Activities.MapsActivity;
 import com.example.nicolai.clider.Activities.UserActivity;
 import com.example.nicolai.clider.R;
 import com.example.nicolai.clider.Services.BackgroundService;
@@ -78,13 +79,16 @@ public class BrowseActivity extends AppCompatActivity {
                 Intent toMyList = new Intent(this, ListActivity.class);
                 this.startActivity(toMyList);
                 return true;
+            case  R.id.mapsID:
+                Intent toMaps = new Intent(this, MapsActivity.class);
+                this.startActivity(toMaps);
                 default:
                     return super.onOptionsItemSelected(item);
         }
 
     }
 
-    //Reference mindorks library
+    //Reference mindorks library https://blog.mindorks.com/android-tinder-swipe-view-example-3eca9b0d4794
     private void buildSwipeView() {
         int bottomMargin = Utils.dpToPx(160);
         Point windowSize = Utils.getDisplaySize(getWindowManager());

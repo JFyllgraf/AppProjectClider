@@ -14,5 +14,11 @@
         android:icon="@android:drawable/star_on"
         app:showAsAction="always"
         />
+    <item
+        android:id="@+id/mapsID"
+        android:title="@string/places"
+        android:icon="@android:drawable/ic_dialog_map"
+        app:showAsAction="always"
+        />
 
 </menu>

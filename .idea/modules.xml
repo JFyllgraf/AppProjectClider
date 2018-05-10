@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\Clider.iml" filepath="C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\Clider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../Fyllgraf/AndroidStudioProjects/appprojectclider/Clider.iml" filepath="$PROJECT_DIR$/../../../Fyllgraf/AndroidStudioProjects/appprojectclider/Clider.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\app\app.iml" filepath="C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../Fyllgraf/AndroidStudioProjects/appprojectclider/app/app.iml" filepath="$PROJECT_DIR$/../../../Fyllgraf/AndroidStudioProjects/appprojectclider/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/appprojectclider.iml" filepath="$PROJECT_DIR$/appprojectclider.iml" />
-      <module fileurl="file://C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\.idea\appprojectclider.iml" filepath="C:\Users\Fyllgraf\AndroidStudioProjects\appprojectclider\.idea\appprojectclider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appprojectclider.iml" filepath="$PROJECT_DIR$/appprojectclider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../Fyllgraf/AndroidStudioProjects/appprojectclider/.idea/appprojectclider.iml" filepath="$PROJECT_DIR$/../../../Fyllgraf/AndroidStudioProjects/appprojectclider/.idea/appprojectclider.iml" />
     </modules>
   </component>
 </project>
